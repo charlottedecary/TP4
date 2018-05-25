@@ -9,6 +9,12 @@ package modele;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import modele.Fonds;
+import modele.Instrument;
+import vue.FondExistant;
+import vue.FondInexistant;
+import vue.InstrumentInexistant;
+
 //mport java.util.Fonds;
 //import java.util.Instrument;
 /**
@@ -29,33 +35,66 @@ public class Portefeuille {
  this.hash_instrument=instrument;
  this.hash_fonds=fonds;}
  
- //methode
- public void rechercherFonds(String clef){
+ //methodes
+ public double rechercherFonds(String clef){
      
-     
+     for(int i=0;i<hash_fonds.size();i++)
+     {
+         if(hash_fonds.containsKey(clef)==true)
+         {
+             return hash_fonds.get(clef).getAmount();
+         }
+         else if(hash_fonds.containsKey(clef)==false) 
+         {
+             throw new FondInexistant();
+             
+         }
+     }
  }
+ public ArrayList<Fonds> rechercherInstrument(String clef){
+     
+     for(int i=0;i<hash_instrument.size();i++)
+     {
+         if(hash_instrument.containsKey(clef)==true)
+         {
+             return hash_instrument.get(clef).getfonds();
+         }
+         else if(hash_instrument.containsKey(clef)==false) 
+         {
+             throw new InstrumentInexistant();
+         }
+     }
+ }
+ 
  public void ajouterMapFonds(String clef, double am){    
-     Fonds f1 = new Fonds(clef, am);
-        
-    try { hash_fonds.put(clef, f1);
-        } catch (FondInexistant e){
-            System.out.println("fond inexisant !");
+      
+     for(int i=0;i<hash_fonds.size();i++)
+     {
+         if(hash_fonds.containsKey(clef)==true)
+         {
+             throw new FondExistant();
+         }
+         else if(hash_fonds.containsKey(clef)==false) 
+         {
+             Fonds f1 = new Fonds(clef, am);
+         }
+     }   
  }
- }
- //ON EST PAS SUR
- public void ajouterInstrument (String clef, Fonds fonds){
-    Instrument i1 = new Instrument (clef, fonds);
-    try { hash_instrument.put(clef, i1);
-        } catch (InstrumentInexistant e){
-            System.out.println("Instrument inexisant !");
-        }
-    
+
+ public void ajouterFondInstrument (String clef, Fonds fonds){
+
+    Instrument i1 = new Instrument (clef,fonds);
+    i1.addFonds(fonds);
     }
+ 
+ 
+ 
  public void supprimerFonds(String clef){
+     hash_fonds.remove(clef);
    
  }
  public void supprimerInstrument(String clef){
-     
+     hash_instrument.clear();
  }
     
 }

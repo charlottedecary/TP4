@@ -22,4 +22,9 @@ public class Fonds {
     this.clef = clef;
     this.amount=amount;
     }
+    public double getAmount() {
+    return amount;}
+    
+    public String getClef() {
+    return clef;}
 }

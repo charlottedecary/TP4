@@ -24,13 +24,24 @@ public class Instrument {
  this.cle=cle;
    }
    //methodes
+
+    public Instrument(String cle, ArrayList<Fonds> a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void addFonds (Fonds obj){
         al.add(obj);
     }
     
+    public ArrayList<Fonds> getfonds( ) {
+    return al;}
+    
+    
+
+
+    public String getCle( ) {
+    return cle;}
     
     
 }
-
 
