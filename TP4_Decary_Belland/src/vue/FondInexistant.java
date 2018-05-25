@@ -9,6 +9,8 @@ package vue;
  *
  * @author charlottedecary
  */
-public class FondInexistant {
-    
+public class FondInexistant extends Exception{
+    public FondInexistant(String message){
+        super(message);
+    }
 }

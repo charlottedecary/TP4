@@ -34,11 +34,25 @@ public class Portefeuille {
      
      
  }
- public void ajouterMapFonds(String clef, double am){
-     
+ public void ajouterMapFonds(String clef, double am){    
+     Fonds f1 = new Fonds(clef, am);
+        
+    try { hash_fonds.put(clef, f1);
+        } catch (FondInexistant e){
+            System.out.println("fond inexisant !");
  }
+ }
+ //ON EST PAS SUR
+ public void ajouterInstrument (String clef, Fonds fonds){
+    Instrument i1 = new Instrument (clef, fonds);
+    try { hash_instrument.put(clef, i1);
+        } catch (InstrumentInexistant e){
+            System.out.println("Instrument inexisant !");
+        }
+    
+    }
  public void supprimerFonds(String clef){
-     
+   
  }
  public void supprimerInstrument(String clef){
      
