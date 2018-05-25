@@ -19,12 +19,12 @@ import java.util.Map;
 
 public class Portefeuille {
     
-   static Map<String, Fonds> fonds = new HashMap<String, Fonds>();
-   static Map<String, Instrument> instrument = new HashMap<String, Instrument>();
+   static Map<String, Fonds> hash_fonds = new HashMap<String, Fonds>();
+   static Map<String, Instrument> hash_instrument = new HashMap<String, Instrument>();
    
  public Portefeuille () {}
  public Portefeuille (Map<String, Fonds> fonds,Map<String, Instrument> instrument) {
- this.instrument=instrument;
- this.fonds=fonds;}
+ this.hash_instrument=instrument;
+ this.hash_fonds=fonds;}
     
 }
