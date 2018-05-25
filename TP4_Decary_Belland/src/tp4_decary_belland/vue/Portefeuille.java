@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//import java.util.Enumeration;
-import java.util.*;
+
 
 package tp4_decary_belland.vue;
 
+import java.util.HashMap;
+import java.util.Map;
+//mport java.util.Fonds;
+//import java.util.Instrument;
 /**
  *
  * @author eugeniebelland
@@ -16,7 +19,9 @@ package tp4_decary_belland.vue;
 
 public class Portefeuille {
     
-    Hashtable fond = new hashtable;
-    Hashtable instrument = new hashtable;
+   static Map<String, Fonds> fonds = new HashMap<String, Fonds>();
+   static Map<String, Instrument> instrument = new HashMap<String, Instrument>();
+   
+    
     
 }
