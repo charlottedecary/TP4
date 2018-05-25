@@ -22,6 +22,9 @@ public class Portefeuille {
    static Map<String, Fonds> fonds = new HashMap<String, Fonds>();
    static Map<String, Instrument> instrument = new HashMap<String, Instrument>();
    
-    
+ public Portefeuille () {}
+ public Portefeuille (Map<String, Fonds> fonds,Map<String, Instrument> instrument) {
+ this.instrument=instrument;
+ this.fonds=fonds;}
     
 }

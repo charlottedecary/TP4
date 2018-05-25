@@ -5,6 +5,7 @@
  */
 package tp4_decary_belland.vue;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Collections ;
 
@@ -15,10 +16,12 @@ import java.util.Collections ;
 public class Instrument {
     //attributs
     ArrayList<Fonds> al = new ArrayList<Fonds>();
+    private String cle;
     
     //constructeurs 
-    public Instrument(ArrayList<Fonds> al) {
+    public Instrument(ArrayList<Fonds> al, String cle) {
  this.al=al;
+ this.cle=cle;
    }
    //methodes
     
