@@ -28,6 +28,10 @@ public class Instrument {
     public Instrument(String cle, ArrayList<Fonds> a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    Instrument(String clef, Fonds fonds) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void addFonds (Fonds obj){
         al.add(obj);

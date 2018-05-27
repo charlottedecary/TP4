@@ -36,47 +36,51 @@ public class Portefeuille {
  this.hash_fonds=fonds;}
  
  //methodes
- public double rechercherFonds(String clef){
-     
+ public double rechercherFonds(String clef) throws FondInexistant{
+     double am=0;
      for(int i=0;i<hash_fonds.size();i++)
      {
-         if(hash_fonds.containsKey(clef)==true)
+         if(hash_fonds.containsKey(clef)==false) 
          {
-             return hash_fonds.get(clef).getAmount();
-         }
-         else if(hash_fonds.containsKey(clef)==false) 
-         {
-             throw new FondInexistant();
+             throw new FondInexistant("la cle ne correspond a aucun fond");
              
          }
+         else if(hash_fonds.containsKey(clef)==true)
+         {
+             am=hash_fonds.get(clef).getAmount();
+         }
      }
+     return am;
  }
- public ArrayList<Fonds> rechercherInstrument(String clef){
-     
+ 
+ public ArrayList<Fonds> rechercherInstrument(String clef) throws InstrumentInexistant{
+     ArrayList <Fonds> fd=null;
      for(int i=0;i<hash_instrument.size();i++)
      {
          if(hash_instrument.containsKey(clef)==true)
          {
-             return hash_instrument.get(clef).getfonds();
+             fd= hash_instrument.get(clef).getfonds();
          }
          else if(hash_instrument.containsKey(clef)==false) 
          {
-             throw new InstrumentInexistant();
+             throw new InstrumentInexistant("La cle ne correspond a aucun instrument");
          }
      }
+     return fd;
  }
  
- public void ajouterMapFonds(String clef, double am){    
+ public void ajouterMapFonds(String clef, double am) throws FondExistant, FondInexistant{    
       
      for(int i=0;i<hash_fonds.size();i++)
      {
          if(hash_fonds.containsKey(clef)==true)
          {
-             throw new FondExistant();
+             throw new FondExistant("La cle existe deja");
          }
          else if(hash_fonds.containsKey(clef)==false) 
          {
              Fonds f1 = new Fonds(clef, am);
+             
          }
      }   
  }
@@ -90,11 +94,14 @@ public class Portefeuille {
  
  
  public void supprimerFonds(String clef){
-     hash_fonds.remove(clef);
-   
+    
+         hash_fonds.remove(clef);
+    
  }
  public void supprimerInstrument(String clef){
-     hash_instrument.clear();
+
+            hash_instrument.clear();
+           
  }
     
 }
